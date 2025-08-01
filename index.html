@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Group Links Directory</title>
+    <title>Join Our Community Groups</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #4361ee;
-            --secondary: #3f37c9;
+            --primary: #4285f4;
+            --primary-dark: #3367d6;
+            --secondary: #34a853;
             --accent: #4895ef;
+            --warning: #fbbc05;
+            --danger: #ea4335;
             --light: #f8f9fa;
             --dark: #212529;
-            --success: #4cc9f0;
-            --warning: #f72585;
             --gray: #6c757d;
             --white: #ffffff;
         }
@@ -39,10 +40,13 @@
         
         /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: var(--white);
             padding: 1rem 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
         .header-content {
@@ -60,57 +64,22 @@
         
         .logo i {
             margin-right: 10px;
-            color: var(--accent);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
-        }
-        
-        nav ul li a:hover {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
         }
         
         /* Hero Section */
         .hero {
-            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 300px;
             display: flex;
             align-items: center;
-            position: relative;
             color: var(--white);
             text-align: center;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            margin-bottom: 2rem;
         }
         
         .hero-content {
-            position: relative;
             width: 100%;
-            padding: 0 20px;
         }
         
         .hero h1 {
@@ -124,140 +93,53 @@
             margin: 0 auto 2rem;
         }
         
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--white);
-            margin-left: 1rem;
-        }
-        
-        .btn-outline:hover {
+        /* Filter Section */
+        .filter-section {
             background: var(--white);
-            color: var(--primary);
-        }
-        
-        /* Categories */
-        .categories {
-            padding: 4rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--dark);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--accent);
-        }
-        
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .category-card {
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .category-img {
-            height: 150px;
-            overflow: hidden;
-        }
-        
-        .category-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .category-card:hover .category-img img {
-            transform: scale(1.1);
-        }
-        
-        .category-info {
             padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
         }
         
-        .category-info h3 {
-            margin-bottom: 0.5rem;
-            color: var(--dark);
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
         }
         
-        .category-info p {
-            color: var(--gray);
+        .filter-group {
             margin-bottom: 1rem;
-            font-size: 0.9rem;
         }
         
-        .category-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: var(--gray);
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .filter-group select, 
+        .filter-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
         }
         
         /* Groups Section */
-        .groups {
-            padding: 4rem 0;
-            background: var(--light);
-        }
-        
-        .group-list {
+        .groups-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
         
         .group-card {
             background: var(--white);
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -265,77 +147,51 @@
         
         .group-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
         
         .group-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
         }
         
-        .group-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-            margin-right: 1rem;
-            flex-shrink: 0;
+        .group-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: rgba(66, 133, 244, 0.1);
+            color: var(--primary);
         }
         
-        .group-title h3 {
+        .group-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
             color: var(--dark);
-            margin-bottom: 0.2rem;
-        }
-        
-        .group-title span {
-            font-size: 0.8rem;
-            color: var(--gray);
         }
         
         .group-description {
-            margin-bottom: 1.5rem;
             color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .group-body {
+            padding: 1.5rem;
             flex-grow: 1;
         }
         
-        .group-footer {
+        .group-meta {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-        }
-        
-        .group-members {
-            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
             color: var(--gray);
         }
         
-        .group-members i {
-            margin-right: 5px;
-            color: var(--accent);
-        }
-        
-        .group-join {
-            background: var(--primary);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .group-join:hover {
-            background: var(--secondary);
-        }
-        
-        .status {
+        .group-status {
             display: inline-block;
             padding: 0.25rem 0.75rem;
             border-radius: 50px;
@@ -344,161 +200,101 @@
         }
         
         .status-active {
-            background: rgba(67, 97, 238, 0.1);
-            color: var(--primary);
+            background: rgba(52, 168, 83, 0.1);
+            color: var(--secondary);
         }
         
         .status-pending {
-            background: rgba(247, 37, 133, 0.1);
+            background: rgba(251, 188, 5, 0.1);
             color: var(--warning);
         }
         
-        .status-full {
-            background: rgba(108, 117, 125, 0.1);
-            color: var(--gray);
+        .status-inactive {
+            background: rgba(234, 67, 53, 0.1);
+            color: var(--danger);
         }
         
-        /* Features */
-        .features {
-            padding: 4rem 0;
+        .group-footer {
+            padding: 1rem 1.5rem;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
         }
         
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-align: center;
         }
         
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
         
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(67, 97, 238, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: var(--primary);
-            font-size: 2rem;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .feature-card p {
-            color: var(--gray);
+        .btn-block {
+            display: block;
+            width: 100%;
         }
         
         /* Footer */
         footer {
             background: var(--dark);
             color: var(--white);
-            padding: 4rem 0 2rem;
+            padding: 2rem 0;
+            text-align: center;
         }
         
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--accent);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--white);
-            padding-left: 5px;
+        .footer-content p {
+            margin-bottom: 1rem;
         }
         
         .social-links {
             display: flex;
+            justify-content: center;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
         
         .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
             color: var(--white);
+            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
         
         .social-links a:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
+            color: var(--accent);
         }
         
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
+        .copyright {
             font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            grid-column: 1 / -1;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 1rem;
-            }
-            
-            nav ul li {
-                margin: 0 0.5rem;
+            .hero {
+                height: 250px;
             }
             
             .hero h1 {
@@ -507,16 +303,6 @@
             
             .hero p {
                 font-size: 1rem;
-            }
-            
-            .btn {
-                display: block;
-                width: 100%;
-                margin-bottom: 1rem;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
             }
         }
     </style>
@@ -528,380 +314,344 @@
             <div class="header-content">
                 <div class="logo">
                     <i class="fas fa-users"></i>
-                    <span>GroupConnect</span>
+                    <span>Community Groups</span>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#groups">Groups</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Connect With Like-Minded Communities</h1>
-            <p>Join thousands of active groups across various platforms and expand your network with professionals and enthusiasts in your field.</p>
-            <div class="hero-buttons">
-                <a href="#groups" class="btn">Explore Groups</a>
-                <a href="#" class="btn btn-outline">Create Group</a>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Join Our Community Groups</h1>
+                <p>Connect with like-minded individuals across various platforms and grow your network</p>
             </div>
         </div>
     </section>
 
-    <!-- Categories Section -->
-    <section class="categories" id="categories">
-        <div class="container">
-            <div class="section-title">
-                <h2>Popular Categories</h2>
-            </div>
-            <div class="category-grid">
-                <!-- Category 1 -->
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Technology">
-                    </div>
-                    <div class="category-info">
-                        <h3>Technology</h3>
-                        <p>Discuss the latest in tech, programming, and innovation.</p>
-                        <div class="category-meta">
-                            <span>120+ Groups</span>
-                            <span>15.2k Members</span>
-                        </div>
-                    </div>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label for="search">Search Groups</label>
+                    <input type="text" id="search" placeholder="Type to search...">
                 </div>
-                
-                <!-- Category 2 -->
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Business">
-                    </div>
-                    <div class="category-info">
-                        <h3>Business</h3>
-                        <p>Networking and discussions for entrepreneurs and professionals.</p>
-                        <div class="category-meta">
-                            <span>85+ Groups</span>
-                            <span>9.7k Members</span>
-                        </div>
-                    </div>
+                <div class="filter-group">
+                    <label for="type">Group Type</label>
+                    <select id="type">
+                        <option value="">All Types</option>
+                        <option value="whatsapp">WhatsApp</option>
+                        <option value="telegram">Telegram</option>
+                        <option value="discord">Discord</option>
+                        <option value="slack">Slack</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
-                
-                <!-- Category 3 -->
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Design">
-                    </div>
-                    <div class="category-info">
-                        <h3>Design</h3>
-                        <p>Creative communities for designers and artists.</p>
-                        <div class="category-meta">
-                            <span>64+ Groups</span>
-                            <span>7.3k Members</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Category 4 -->
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1351&q=80" alt="Education">
-                    </div>
-                    <div class="category-info">
-                        <h3>Education</h3>
-                        <p>Learning communities and study groups.</p>
-                        <div class="category-meta">
-                            <span>92+ Groups</span>
-                            <span>12.1k Members</span>
-                        </div>
-                    </div>
+                <div class="filter-group">
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="">All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                    </select>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Groups Section -->
-    <section class="groups" id="groups">
-        <div class="container">
-            <div class="section-title">
-                <h2>Featured Groups</h2>
+        <!-- Groups Section -->
+        <section class="groups-container" id="groups-container">
+            <!-- Groups will be loaded here dynamically -->
+            <div class="empty-state">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading groups...</p>
             </div>
-            <div class="group-list">
-                <!-- Group 1 -->
-                <div class="group-card">
-                    <div class="group-header">
-                        <div class="group-icon">
-                            <i class="fab fa-telegram"></i>
-                        </div>
-                        <div class="group-title">
-                            <h3>Tech Innovators</h3>
-                            <span>Telegram Group</span>
-                        </div>
-                    </div>
-                    <div class="group-description">
-                        <p>A community of tech enthusiasts discussing the latest innovations, startups, and programming challenges.</p>
-                    </div>
-                    <div class="group-footer">
-                        <div class="group-members">
-                            <i class="fas fa-users"></i> 2,450 members
-                        </div>
-                        <span class="status status-active">Active</span>
-                    </div>
-                    <a href="#" class="group-join">Join Group</a>
-                </div>
-                
-                <!-- Group 2 -->
-                <div class="group-card">
-                    <div class="group-header">
-                        <div class="group-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="group-title">
-                            <h3>Digital Marketers</h3>
-                            <span>WhatsApp Group</span>
-                        </div>
-                    </div>
-                    <div class="group-description">
-                        <p>Professionals sharing insights, strategies and opportunities in digital marketing and social media.</p>
-                    </div>
-                    <div class="group-footer">
-                        <div class="group-members">
-                            <i class="fas fa-users"></i> 1,890 members
-                        </div>
-                        <span class="status status-active">Active</span>
-                    </div>
-                    <a href="#" class="group-join">Join Group</a>
-                </div>
-                
-                <!-- Group 3 -->
-                <div class="group-card">
-                    <div class="group-header">
-                        <div class="group-icon">
-                            <i class="fab fa-discord"></i>
-                        </div>
-                        <div class="group-title">
-                            <h3>Design Thinkers</h3>
-                            <span>Discord Server</span>
-                        </div>
-                    </div>
-                    <div class="group-description">
-                        <p>A creative space for UI/UX designers to share work, get feedback, and discuss design trends.</p>
-                    </div>
-                    <div class="group-footer">
-                        <div class="group-members">
-                            <i class="fas fa-users"></i> 3,210 members
-                        </div>
-                        <span class="status status-pending">Approval Needed</span>
-                    </div>
-                    <a href="#" class="group-join">Request Access</a>
-                </div>
-                
-                <!-- Group 4 -->
-                <div class="group-card">
-                    <div class="group-header">
-                        <div class="group-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="group-title">
-                            <h3>Startup Founders</h3>
-                            <span>Private Network</span>
-                        </div>
-                    </div>
-                    <div class="group-description">
-                        <p>Exclusive community for startup founders to connect, share experiences, and find collaborators.</p>
-                    </div>
-                    <div class="group-footer">
-                        <div class="group-members">
-                            <i class="fas fa-users"></i> 980 members
-                        </div>
-                        <span class="status status-full">Limited Space</span>
-                    </div>
-                    <a href="#" class="group-join">Apply Now</a>
-                </div>
-                
-                <!-- Group 5 -->
-                <div class="group-card">
-                    <div class="group-header">
-                        <div class="group-icon">
-                            <i class="fab fa-slack"></i>
-                        </div>
-                        <div class="group-title">
-                            <h3>Remote Workers</h3>
-                            <span>Slack Community</span>
-                        </div>
-                    </div>
-                    <div class="group-description">
-                        <p>Digital nomads and remote professionals sharing tips, job opportunities, and work-life balance advice.</p>
-                    </div>
-                    <div class="group-footer">
-                        <div class="group-members">
-                            <i class="fas fa-users"></i> 4,320 members
-                        </div>
-                        <span class="status status-active">Active</span>
-                    </div>
-                    <a href="#" class="group-join">Join Group</a>
-                </div>
-                
-                <!-- Group 6 -->
-                <div class="group-card">
-                    <div class="group-header">
-                        <div class="group-icon">
-                            <i class="fab fa-telegram"></i>
-                        </div>
-                        <div class="group-title">
-                            <h3>AI Enthusiasts</h3>
-                            <span>Telegram Group</span>
-                        </div>
-                    </div>
-                    <div class="group-description">
-                        <p>Discussion group for artificial intelligence, machine learning, and data science professionals.</p>
-                    </div>
-                    <div class="group-footer">
-                        <div class="group-members">
-                            <i class="fas fa-users"></i> 1,750 members
-                        </div>
-                        <span class="status status-active">Active</span>
-                    </div>
-                    <a href="#" class="group-join">Join Group</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Join Our Groups?</h2>
-            </div>
-            <div class="feature-grid">
-                <!-- Feature 1 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3>Professional Networking</h3>
-                    <p>Connect with professionals and experts in your industry to expand your network and opportunities.</p>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Knowledge Sharing</h3>
-                    <p>Learn from others' experiences and share your own insights in focused, topic-specific communities.</p>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Career Opportunities</h3>
-                    <p>Discover job openings, freelance gigs, and collaboration opportunities posted by community members.</p>
-                </div>
-                
-                <!-- Feature 4 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <h3>Events & Meetups</h3>
-                    <p>Get notified about upcoming webinars, conferences, and local meetups organized by group members.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <!-- Column 1 -->
-                <div class="footer-column">
-                    <h3>GroupConnect</h3>
-                    <p>Connecting professionals and enthusiasts through curated communities across various platforms.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                
-                <!-- Column 2 -->
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#groups">Groups</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#">Create Group</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Column 3 -->
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Community Guidelines</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Column 4 -->
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to get updates on new groups and community events.</p>
-                    <form>
-                        <input type="email" placeholder="Your Email" class="form-control" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 4px; border: none;">
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 GroupConnect. All rights reserved.</p>
+                <p>Connect with us on social media</p>
+                <p class="copyright">&copy; 2023 Community Groups. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Simple form validation for newsletter
-        const newsletterForm = document.querySelector('footer form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value;
-                if (email && email.includes('@')) {
-                    alert('Thank you for subscribing to our newsletter!');
-                    this.reset();
-                } else {
-                    alert('Please enter a valid email address.');
+        // Fetch groups from the same data source as admin panel
+        document.addEventListener('DOMContentLoaded', function() {
+            // In a real implementation, this would fetch from your API
+            // For now, we'll use the same sample data as the admin panel
+            const sampleGroups = [
+                {
+                    id: 1,
+                    name: "Tech Enthusiasts",
+                    url: "https://t.me/techenthusiasts",
+                    type: "telegram",
+                    description: "Discussion about latest tech trends and innovations. Join our community of tech lovers!",
+                    status: "active",
+                    members: 2450,
+                    createdAt: "2023-05-15"
+                },
+                {
+                    id: 2,
+                    name: "Web Developers Hub",
+                    url: "https://chat.whatsapp.com/webdevs",
+                    type: "whatsapp",
+                    description: "Community for web developers to share knowledge and collaborate on projects.",
+                    status: "active",
+                    members: 1890,
+                    createdAt: "2023-06-20"
+                },
+                {
+                    id: 3,
+                    name: "Design Community",
+                    url: "https://discord.gg/design",
+                    type: "discord",
+                    description: "UI/UX designers network for feedback, resources, and job opportunities.",
+                    status: "pending",
+                    members: 3210,
+                    createdAt: "2023-07-10"
+                },
+                {
+                    id: 4,
+                    name: "Startup Founders",
+                    url: "https://slack.com/startup-founders",
+                    type: "slack",
+                    description: "Exclusive community for startup founders to connect and share experiences.",
+                    status: "active",
+                    members: 980,
+                    createdAt: "2023-08-05"
+                },
+                {
+                    id: 5,
+                    name: "Digital Marketers",
+                    url: "https://t.me/digitalmarketers",
+                    type: "telegram",
+                    description: "Professionals sharing insights and strategies in digital marketing.",
+                    status: "active",
+                    members: 1750,
+                    createdAt: "2023-07-15"
+                },
+                {
+                    id: 6,
+                    name: "AI & Machine Learning",
+                    url: "https://chat.whatsapp.com/aimlcommunity",
+                    type: "whatsapp",
+                    description: "Discussion group for AI, machine learning, and data science professionals.",
+                    status: "pending",
+                    members: 2100,
+                    createdAt: "2023-08-10"
                 }
+            ];
+
+            // Render groups
+            renderGroups(sampleGroups);
+
+            // Set up filtering
+            document.getElementById('search').addEventListener('input', filterGroups);
+            document.getElementById('type').addEventListener('change', filterGroups);
+            document.getElementById('status').addEventListener('change', filterGroups);
+        });
+
+        // Render groups function
+        function renderGroups(groups) {
+            const container = document.getElementById('groups-container');
+            
+            if (groups.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-users-slash"></i>
+                        <h3>No groups found</h3>
+                        <p>Try adjusting your search filters</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            groups.forEach(group => {
+                const groupCard = document.createElement('div');
+                groupCard.className = 'group-card';
+                
+                // Determine platform icon
+                let platformIcon;
+                switch(group.type) {
+                    case 'whatsapp':
+                        platformIcon = 'fab fa-whatsapp';
+                        break;
+                    case 'telegram':
+                        platformIcon = 'fab fa-telegram';
+                        break;
+                    case 'discord':
+                        platformIcon = 'fab fa-discord';
+                        break;
+                    case 'slack':
+                        platformIcon = 'fab fa-slack';
+                        break;
+                    default:
+                        platformIcon = 'fas fa-users';
+                }
+                
+                // Determine status class
+                let statusClass;
+                switch(group.status) {
+                    case 'active':
+                        statusClass = 'status-active';
+                        break;
+                    case 'pending':
+                        statusClass = 'status-pending';
+                        break;
+                    case 'inactive':
+                        statusClass = 'status-inactive';
+                        break;
+                    default:
+                        statusClass = '';
+                }
+                
+                groupCard.innerHTML = `
+                    <div class="group-header">
+                        <span class="group-type"><i class="${platformIcon}"></i> ${group.type.charAt(0).toUpperCase() + group.type.slice(1)}</span>
+                        <h3 class="group-title">${group.name}</h3>
+                        <p class="group-description">${group.description}</p>
+                    </div>
+                    <div class="group-body">
+                        <div class="group-meta">
+                            <span><i class="fas fa-users"></i> ${group.members.toLocaleString()} members</span>
+                            <span class="group-status ${statusClass}">${group.status.charAt(0).toUpperCase() + group.status.slice(1)}</span>
+                        </div>
+                    </div>
+                    <div class="group-footer">
+                        <a href="${group.url}" target="_blank" class="btn btn-block">
+                            ${group.status === 'pending' ? 'Request Access' : 'Join Group'}
+                        </a>
+                    </div>
+                `;
+                
+                container.appendChild(groupCard);
             });
         }
+
+        // Filter groups based on search and filters
+        function filterGroups() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const typeFilter = document.getElementById('type').value;
+            const statusFilter = document.getElementById('status').value;
+            
+            // In a real app, this would be a filtered API request
+            // For now, we'll filter the sample data
+            const sampleGroups = [
+                {
+                    id: 1,
+                    name: "Tech Enthusiasts",
+                    url: "https://t.me/techenthusiasts",
+                    type: "telegram",
+                    description: "Discussion about latest tech trends and innovations. Join our community of tech lovers!",
+                    status: "active",
+                    members: 2450,
+                    createdAt: "2023-05-15"
+                },
+                {
+                    id: 2,
+                    name: "Web Developers Hub",
+                    url: "https://chat.whatsapp.com/webdevs",
+                    type: "whatsapp",
+                    description: "Community for web developers to share knowledge and collaborate on projects.",
+                    status: "active",
+                    members: 1890,
+                    createdAt: "2023-06-20"
+                },
+                {
+                    id: 3,
+                    name: "Design Community",
+                    url: "https://discord.gg/design",
+                    type: "discord",
+                    description: "UI/UX designers network for feedback, resources, and job opportunities.",
+                    status: "pending",
+                    members: 3210,
+                    createdAt: "2023-07-10"
+                },
+                {
+                    id: 4,
+                    name: "Startup Founders",
+                    url: "https://slack.com/startup-founders",
+                    type: "slack",
+                    description: "Exclusive community for startup founders to connect and share experiences.",
+                    status: "active",
+                    members: 980,
+                    createdAt: "2023-08-05"
+                },
+                {
+                    id: 5,
+                    name: "Digital Marketers",
+                    url: "https://t.me/digitalmarketers",
+                    type: "telegram",
+                    description: "Professionals sharing insights and strategies in digital marketing.",
+                    status: "active",
+                    members: 1750,
+                    createdAt: "2023-07-15"
+                },
+                {
+                    id: 6,
+                    name: "AI & Machine Learning",
+                    url: "https://chat.whatsapp.com/aimlcommunity",
+                    type: "whatsapp",
+                    description: "Discussion group for AI, machine learning, and data science professionals.",
+                    status: "pending",
+                    members: 2100,
+                    createdAt: "2023-08-10"
+                }
+            ];
+            
+            const filteredGroups = sampleGroups.filter(group => {
+                // Search term filter
+                const matchesSearch = searchTerm === '' || 
+                    group.name.toLowerCase().includes(searchTerm) || 
+                    group.description.toLowerCase().includes(searchTerm);
+                
+                // Type filter
+                const matchesType = typeFilter === '' || group.type === typeFilter;
+                
+                // Status filter
+                const matchesStatus = statusFilter === '' || group.status === statusFilter;
+                
+                return matchesSearch && matchesType && matchesStatus;
+            });
+            
+            renderGroups(filteredGroups);
+        }
+
+        // In a real implementation, you would fetch groups from your API
+        // Here's how that might look:
+        /*
+        async function fetchGroups() {
+            try {
+                const response = await fetch('/api/groups');
+                const groups = await response.json();
+                renderGroups(groups);
+            } catch (error) {
+                console.error('Error fetching groups:', error);
+                document.getElementById('groups-container').innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Error loading groups</h3>
+                        <p>Please try again later</p>
+                    </div>
+                `;
+            }
+        }
+        */
     </script>
 </body>
-  </html>
+            </html>
