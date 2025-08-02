@@ -2,7 +2,7 @@
 const links = {
     "abc123": {
         "image": "short.jpg",
-        "destination": "https://example.com/your-long-url-here"
+        "destination": "https://google.com/your-long-url-here"
     },
     "test": {
         "image": "short.jpg",
