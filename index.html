@@ -3,23 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link Shortener</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Join Our Telegram Channels</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #0088cc, #34b7f1);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        
+        .channel-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .channel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .channel-icon {
+            font-size: 2.5em;
+            margin-right: 20px;
+            color: #0088cc;
+        }
+        
+        .channel-info {
+            flex: 1;
+        }
+        
+        .channel-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: #0088cc;
+        }
+        
+        .join-btn {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        
+        .join-btn:hover {
+            background-color: #006699;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 600px) {
+            .channel-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .channel-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Link Shortener</h1>
-        <p>This is the main page. Short links will automatically redirect.</p>
-        <p>Example: <a href="/abc123">/abc123</a></p>
+        <header>
+            <h1>Join Our Telegram Channels</h1>
+            <p>Stay updated with our latest content and discussions</p>
+        </header>
+        
+        <div class="channel-card">
+            <div class="channel-icon">📢</div>
+            <div class="channel-info">
+                <div class="channel-name">Fake Zone 😋</div>
+                <p>Join our fun and entertaining channel for amazing content!</p>
+            </div>
+            <a href="https://t.me/+kvIGh4JyP_QzZjY9" class="join-btn" target="_blank">Join Now</a>
+        </div>
+        
+        <div class="channel-card">
+            <div class="channel-icon">🔥</div>
+            <div class="channel-info">
+                <div class="channel-name">🔥Fire Zone🔥</div>
+                <p>Hot trending content and discussions - don't miss out!</p>
+            </div>
+            <a href="https://t.me/+8DLR2OBTaBdiMjM1" class="join-btn" target="_blank">Join Now</a>
+        </div>
+        
+        <div class="channel-card">
+            <div class="channel-icon">🔗</div>
+            <div class="channel-info">
+                <div class="channel-name">All Link Here 😍❤️</div>
+                <p>Your one-stop destination for all important links and resources.</p>
+            </div>
+            <a href="https://t.me/+oZv7wqOwhts0ODY1" class="join-btn" target="_blank">Join Now</a>
+        </div>
+        
+        <footer>
+            <p>© 2023 Telegram Channels. All rights reserved.</p>
+        </footer>
     </div>
-
-    <script src="script.js"></script>
-    <script>
-        // Handle redirects on page load
-        const path = window.location.pathname.replace('/', '');
-        if(path && path !== 'index.html') {
-            checkAndRedirect(path);
-        }
-    </script>
 </body>
 </html>
